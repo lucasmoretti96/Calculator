@@ -42,6 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculate.cs" />
+    <Compile Include="DivisionAccount.cs" />
+    <Compile Include="NumbersCollector.cs" />
+    <Compile Include="OperationCollector.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
