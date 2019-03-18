@@ -9,20 +9,25 @@ namespace Calculator
         public double HandleCalculate(double number1, double number2, string @operator)
         {
             double result = 0;
+            var sum = new Sum();
+            var sub = new Subtraction();
+            var mult = new Multiplication();
+            var div = new Division();
+            var divAccount = new DivisionAccount();
             switch (@operator)
             {
                 case "+":
-                    result = number1 + number2;
+                    result = sum.HandleCalculate(number1, number2);
                     break;
                 case "-":
-                    result = number1 - number2;
+                    result = sub.HandleCalculate(number1, number2);
                     break;
                 case "*":
-                    result = number1 * number2;
+                    result = mult.HandleCalculate(number1, number2);
                     break;
                 case "/":
-                    var number2Verified = new DivisionAccount().HandleDivisionByZero(number2);
-                    result = number1 / number2Verified;
+                    var number2Verified = divAccount.HandleDivisionByZero(number2);
+                    result = div.HandleCalculate(number1, number2Verified);
                     break;
                 default:
                     Console.WriteLine("Operação não reconhecida!");
