@@ -2,19 +2,11 @@
 
 namespace Calculator
 {
-    class Division : IOperation
+    public static class DivisionTratamentoErroEx
     {
         public const int ERROR = -1;
-        private double result;
 
-        public double HandleOperation(double number1, double number2)
-        {
-            HandleDivisionByZero(number2);
-            result = number1 / number2;
-            return result;
-        }
-
-        public double HandleDivisionByZero(double number2)
+        public static double Tratar(this Division division, double number2)
         {
             if (number2 == 0)
             {
