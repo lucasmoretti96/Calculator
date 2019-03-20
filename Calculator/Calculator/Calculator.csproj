@@ -44,8 +44,8 @@
   <ItemGroup>
     <Compile Include="Calculate.cs" />
     <Compile Include="Division.cs" />
-    <Compile Include="DivisionAccount.cs" />
     <Compile Include="ICalculate.cs" />
+    <Compile Include="IOperation.cs" />
     <Compile Include="Multiplication.cs" />
     <Compile Include="NumbersCollector.cs" />
     <Compile Include="OperationCollector.cs" />

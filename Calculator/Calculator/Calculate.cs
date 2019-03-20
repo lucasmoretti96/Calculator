@@ -2,32 +2,34 @@
 
 namespace Calculator
 {
-    public class Calculate
+    public class Calculate : ICalculate
     {
         public const int ERROR = -1;
 
-        public double HandleCalculate(double number1, double number2, string @operator)
+        public double HandleCalculate(object numbers, string @operator)
         {
-            double result = 0;
-            var sum = new Sum();
-            var sub = new Subtraction();
-            var mult = new Multiplication();
-            var div = new Division();
-            var divAccount = new DivisionAccount();
+            var operation = GetCalculate(@operator);
+
+            return operation.HandleCalculate(numbers, @operator);
+        }
+
+        ICalculate ICalculate.GetCalculate(string @operator)
+        {
+            ICalculate calculate = null;
+
             switch (@operator)
             {
                 case "+":
-                    result = sum.HandleCalculate(number1, number2);
+                    calculate = (ICalculate)new Sum();
                     break;
                 case "-":
-                    result = sub.HandleCalculate(number1, number2);
+                    calculate = (ICalculate)new Subtraction();
                     break;
                 case "*":
-                    result = mult.HandleCalculate(number1, number2);
+                    calculate = (ICalculate)new Multiplication();
                     break;
                 case "/":
-                    var number2Verified = divAccount.HandleDivisionByZero(number2);
-                    result = div.HandleCalculate(number1, number2Verified);
+                    calculate = (ICalculate)new Division();
                     break;
                 default:
                     Console.WriteLine("Operação não reconhecida!");
@@ -35,7 +37,8 @@ namespace Calculator
                     Environment.Exit(ERROR);
                     break;
             }
-            return result;
+
+            return calculate;
         }
     }
 }

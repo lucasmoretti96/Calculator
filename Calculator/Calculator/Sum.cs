@@ -1,10 +1,10 @@
 ﻿namespace Calculator
 {
-    class Sum : ICalculate
+    public class Sum : IOperation
     {
         private double result;
 
-        public double HandleCalculate(double number1, double number2)
+        public double HandleOperation(double number1, double number2)
         {
             result = number1 + number2;
             return result;
